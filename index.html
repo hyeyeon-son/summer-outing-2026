@@ -486,7 +486,7 @@
       <div class="types-grid">
         <div class="type-pill pill-a">☀️ 도시락 준비왕</div>
         <div class="type-pill pill-b">🌿 자연 탐구형</div>
-        <div class="type-pill pill-c">🌸 감성파 피크니커</div>
+        <div class="type-pill pill-c">🌸 감성 낭만형</div>
         <div class="type-pill pill-d">🦋 꽃밭 소셜 나비</div>
       </div>
       <div class="name-input-wrap">
@@ -606,7 +606,7 @@
 
   조합 → 유형
   V1 + E1 = 자연 탐구형   (b)
-  V1 + E2 = 감성파 피크니커    (c)
+  V1 + E2 = 감성 낭만형    (c)
   V2 + E1 = 꽃밭 소셜 나비    (d)
   V2 + E2 = 도시락 준비왕  (a)
 */
@@ -656,8 +656,8 @@ const QS = [
     intro: "슬슬 해가 기울어지는 중 🌇",
     text: "소풍 마무리, 어떻게 끝나면 완벽할까?",
     opts: [
-      { text: "팀끼리 가볍게 스피드 퀴즈나 공통 미션 클리어!", axis: 'E', val: 1 },
-      { text: "맛있는 거 더 먹으며 팀원들과 편하게 마무리", axis: 'E', val: 2 }
+      { text: "사람들과 캠프파이어하며 마시멜로 구워먹기", axis: 'E', val: 1 },
+      { text: "노을 감성에 취해 일몰 사진 찍기", axis: 'E', val: 2 }
     ]
   }
 ];
@@ -701,7 +701,7 @@ const TYPES = {
     bgClass: 'bg-b', tagClass: 'tag-b', chipClass: 'chip-b',
     desc: "지도 없이 떠나는 자유로운 영혼! 정해진 코스보다 발길 닿는 대로 걷고, 아무도 모르는 숨겨진 뷰포인트를 조용히 발굴하는 타입이에요. 오늘 소풍에서도 당신만의 새로운 발견이 기다리고 있을 거예요. 🌿",
     tags: ["#자유영혼", "#즉흥만세", "#탐험러", "#숨은명소발굴", "#발길닿는대로"],
-    compat: ["도시락 준비왕", "감성파 피크니커"],
+    compat: ["도시락 준비왕", "감성 낭만형"],
     axes: { V: 1, E: 1 },
     svg: `<svg viewBox="0 0 120 120" width="108" height="108" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="60" cy="110" rx="54" ry="16" fill="#a7f3d0" opacity="0.45"/>
@@ -723,7 +723,7 @@ const TYPES = {
   },
   c: {
     key: 'c',
-    name: "🌸 감성파 피크니커",
+    name: "🌸 감성 낭만형",
     slogan: '"순간이 영원이 되는 소풍"',
     bgClass: 'bg-c', tagClass: 'tag-c', chipClass: 'chip-c',
     desc: "소풍의 모든 순간을 특별하게 기록하는 감성 메이커! 햇살의 각도, 바람의 온도, 꽃의 향기까지 섬세하게 느끼는 당신은 오늘 이 순간을 오래 기억될 한 장면으로 만들어냅니다. 당신이 담은 사진 한 장이, 그게 진짜 오늘의 소풍이에요. 🌸",
@@ -761,7 +761,7 @@ const TYPES = {
     bgClass: 'bg-d', tagClass: 'tag-d', chipClass: 'chip-d',
     desc: "나 있는 곳이 바로 파티! 처음 만나는 사람과도 금세 친해지고, 어색한 공기를 웃음으로 바꾸는 소풍의 분위기 메이커예요. 오늘 이 자리가 특별해지는 건, 사실 당신 덕분입니다. 🦋",
     tags: ["#소셜나비", "#분위기메이커", "#어색함파괴자", "#연결고리", "#나있으면즐거워"],
-    compat: ["도시락 준비왕", "감성파 피크니커"],
+    compat: ["도시락 준비왕", "감성 낭만형"],
     axes: { V: 2, E: 1 },
     svg: `<svg viewBox="0 0 120 120" width="108" height="108" xmlns="http://www.w3.org/2000/svg">
       <g opacity="0.82">
