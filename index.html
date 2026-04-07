@@ -557,9 +557,7 @@
           </div>
           <div id="stats-rows"><div class="stats-loading">집계 중…</div></div>
         </div>
-        <div id="submit-area">
-          <button class="submit-btn" id="submit-btn" onclick="submitResult()">✓ 결과 제출하기</button>
-        </div>
+
         <button class="retry-btn" onclick="restartQuiz()">↩ 다시 테스트하기</button>
       </div>
     </div>
@@ -941,11 +939,8 @@ function showResult() {
 
   // Save to localStorage
   currentResultKey = saveResult(userName, t.name, key);
-  document.getElementById('submit-btn').disabled = false;
-  document.getElementById('submit-btn').classList.remove('done');
-  document.getElementById('submit-btn').textContent = '✓ 결과 제출하기';
-
-  // Load stats
+  // 자동 제출 + 통계 로드
+  autoSubmit();
   loadStats(key);
 }
 
@@ -1035,31 +1030,17 @@ function getStoredData() {
 }
 
 /* ── Submit (webhook) ── */
-async function submitResult() {
-  const btn = document.getElementById('submit-btn');
+async function autoSubmit() {
   const record = getStoredData()[currentResultKey];
-  if (!record) return;
-
-  if (CONFIG.webhookUrl) {
-    btn.disabled = true;
-    btn.textContent = '전송 중…';
-    try {
-      await fetch(CONFIG.webhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(record)
-      });
-      btn.classList.add('done');
-      btn.textContent = '✓ 제출 완료!';
-    } catch {
-      btn.disabled = false;
-      btn.textContent = '⚠ 다시 시도하기';
-    }
-  } else {
-    // No webhook: show saved confirmation
-    btn.classList.add('done');
-    btn.textContent = '✓ 저장 완료 (로컬)';
-    btn.disabled = true;
+  if (!record || !CONFIG.webhookUrl) return;
+  try {
+    await fetch(CONFIG.webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(record)
+    });
+  } catch (e) {
+    console.warn('전송 실패, localStorage에만 저장됨', e);
   }
 }
 
